@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Unipath — Donation Center</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <!-- Header -->
+  <header class="site-header">
+    <div class="container header-inner">
+      <a class="logo" href="index.html">Unipath</a>
+      <input type="checkbox" id="nav-toggle" class="nav-toggle" />
+      <label for="nav-toggle" class="hamburger">☰</label>
+      <nav class="nav">
+        <a href="index.html">Home</a>
+        <a href="search.html">Find Universities</a>
+        <a href="donate.html" class="active">Donate</a>
+        <a href="stories.html">Student Stories</a>
+        <a href="chatbot.html">AI Bot</a>
+        <a href="login.html" class="btn btn-small">Login</a>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Donation Info -->
+  <section class="section">
+    <div class="container">
+      <h1>Donation Center</h1>
+      <p>Your contributions can help students clear their fees or secure their spot at a university. Every small amount counts toward someone’s dream.</p>
+    </div>
+  </section>
+
+  <!-- General Donation -->
+  <section class="section alt">
+    <div class="container">
+      <h2>Donate to the General Fund</h2>
+      <form class="donation-form">
+        <div class="form-group">
+          <label for="amount">Donation Amount (USD):</label>
+          <input type="number" id="amount" placeholder="e.g. 50" />
+        </div>
+        <div class="form-group">
+          <label for="method">Payment Method:</label>
+          <select id="method">
+            <option>Credit Card</option>
+            <option>PayPal</option>
+            <option>Bank Transfer</option>
+          </select>
+        </div>
+        <button type="submit" class="btn">Donate Now</button>
+      </form>
+    </div>
+  </section>
+
+  <!-- Support Specific Student -->
+  <section class="section">
+    <div class="container">
+      <h2>Support a Specific Student</h2>
+      <div class="grid-3">
+        <article class="card">
+          <h3>Sarah M.</h3>
+          <p>Owes $1200 for final semester in Nursing.</p>
+          <a href="stories.html" class="btn btn-small">Read Story</a>
+        </article>
+
+        <article class="card">
+          <h3>James T.</h3>
+          <p>Needs $800 to register for Computer Science.</p>
+          <a href="stories.html" class="btn btn-small">Read Story</a>
+        </article>
+
+        <article class="card">
+          <h3>Priya K.</h3>
+          <p>Owes $500 for Engineering tuition balance.</p>
+          <a href="stories.html" class="btn btn-small">Read Story</a>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <strong>Unipath</strong>
+      <p>Opening doors to affordable education.</p>
+      <p class="copyright">© 2025 Unipath. All rights reserved.</p>
+    </div>
+  </footer>
+
+</body>
+</html>
+

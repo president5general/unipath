@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Unipath — Student Stories</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <!-- Header -->
+  <header class="site-header">
+    <div class="container header-inner">
+      <a class="logo" href="index.html">Unipath</a>
+      <input type="checkbox" id="nav-toggle" class="nav-toggle" />
+      <label for="nav-toggle" class="hamburger">☰</label>
+      <nav class="nav">
+        <a href="index.html">Home</a>
+        <a href="search.html">Find Universities</a>
+        <a href="donate.html">Donate</a>
+        <a href="stories.html" class="active">Student Stories</a>
+        <a href="chatbot.html">AI Bot</a>
+        <a href="login.html" class="btn btn-small">Login</a>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Intro -->
+  <section class="section">
+    <div class="container">
+      <h1>Student Stories</h1>
+      <p>Here are real stories from students who need help paying for university. You can read their journeys and choose to support them through our Donation Center.</p>
+    </div>
+  </section>
+
+  <!-- Stories List -->
+  <section class="section alt">
+    <div class="container grid-3">
+      <article class="card">
+        <h3>Sarah M.</h3>
+        <p>Final-year nursing student. Owes $1200 to graduate. Despite working part-time, she’s unable to cover the full cost.</p>
+        <a href="donate.html" class="btn btn-small">Support Sarah</a>
+      </article>
+
+      <article class="card">
+        <h3>James T.</h3>
+        <p>Computer Science student. Needs $800 for registration fees. His family lost income during the pandemic.</p>
+        <a href="donate.html" class="btn btn-small">Support James</a>
+      </article>
+
+      <article class="card">
+        <h3>Priya K.</h3>
+        <p>Engineering student. Owes $500 in tuition balance. She’s the first in her family to attend university.</p>
+        <a href="donate.html" class="btn btn-small">Support Priya</a>
+      </article>
+    </div>
+  </section>
+
+  <!-- Submit Story -->
+  <section class="section">
+    <div class="container">
+      <h2>Share Your Story</h2>
+      <form class="story-form">
+        <div class="form-group">
+          <label for="name">Your Name:</label>
+          <input type="text" id="name" placeholder="Full Name" required />
+        </div>
+        <div class="form-group">
+          <label for="amount">Amount Owed (USD):</label>
+          <input type="number" id="amount" placeholder="e.g. 1200" required />
+        </div>
+        <div class="form-group">
+          <label for="story">Your Story:</label>
+          <textarea id="story" placeholder="Explain your situation..." required></textarea>
+        </div>
+        <button type="submit" class="btn">Submit Story</button>
+      </form>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <strong>Unipath</strong>
+      <p>Opening doors to affordable education.</p>
+      <p class="copyright">© 2025 Unipath. All rights reserved.</p>
+    </div>
+  </footer>
+
+</body>
+</html>
+
