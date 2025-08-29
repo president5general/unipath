@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<<!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
@@ -37,76 +37,22 @@
   <section class="section alt">
     <div class="container">
       <h2>Donate to the General Fund</h2>
-      <form class="donation-form">
+      <form id="donationRedirectForm" class="donation-form">
         <div class="form-group">
           <label for="amount">Donation Amount (USD):</label>
-          <input type="number" id="amount" placeholder="e.g. 50" />
-        </div>
-        <div class="form-group">
-          <label for="method">Payment Method:</label>
-          <select id="method">
-            <option>Credit Card</option>
-            <option>PayPal</option>
-            <option>Bank Transfer</option>
-          </select>
+          <input type="number" id="amount" placeholder="e.g. 50" required />
         </div>
         <button type="submit" class="btn">Donate Now</button>
       </form>
     </div>
   </section>
 
-  <h2>Donation Details</h2>
-<form id="donationForm">
-    <label for="bankName">Bank Name:</label>
-    <input type="text" id="bankName" name="bankName" placeholder="Your Bank Name" required>
-
-    <label for="accountNumber">Account Number:</label>
-    <input type="text" id="accountNumber" name="accountNumber" placeholder="Your Account Number" required>
-
-    <label for="paypalEmail">PayPal Email:</label>
-    <input type="email" id="paypalEmail" name="paypalEmail" placeholder="example@paypal.com">
-
-    <button type="submit">Save Details</button>
-</form>
-
-<script>
-document.getElementById("donationForm").addEventListener("submit", function(event){
-    event.preventDefault();
-    
-    const bankName = document.getElementById("bankName").value;
-    const accountNumber = document.getElementById("accountNumber").value;
-    const paypalEmail = document.getElementById("paypalEmail").value;
-
-    console.log("Bank Name:", bankName);
-    console.log("Account Number:", accountNumber);
-    console.log("PayPal Email:", paypalEmail);
-
-    alert("Details saved successfully!");
-});
-</script>
-
-  <!-- Support Specific Student -->
+  <!-- Student Stories showing dynamically -->
   <section class="section">
     <div class="container">
       <h2>Support a Specific Student</h2>
-      <div class="grid-3">
-        <article class="card">
-          <h3>Sarah M.</h3>
-          <p>Owes $1200 for final semester in Nursing.</p>
-          <a href="stories.html" class="btn btn-small">Read Story</a>
-        </article>
-
-        <article class="card">
-          <h3>James T.</h3>
-          <p>Needs $800 to register for Computer Science.</p>
-          <a href="stories.html" class="btn btn-small">Read Story</a>
-        </article>
-
-        <article class="card">
-          <h3>Priya K.</h3>
-          <p>Owes $500 for Engineering tuition balance.</p>
-          <a href="stories.html" class="btn btn-small">Read Story</a>
-        </article>
+      <div id="studentStories" class="grid-3">
+        <!-- Stories will be loaded here dynamically -->
       </div>
     </div>
   </section>
@@ -120,7 +66,33 @@ document.getElementById("donationForm").addEventListener("submit", function(even
     </div>
   </footer>
 
+  <script>
+  // Redirect to checkout page
+  document.getElementById("donationRedirectForm").addEventListener("submit", function(e){
+      e.preventDefault();
+      const amount = document.getElementById("amount").value;
+      window.location.href = "checkout.html?amount=" + amount;
+  });
+
+  // Load stories from localStorage
+  function loadStories() {
+      const storiesContainer = document.getElementById("studentStories");
+      const stories = JSON.parse(localStorage.getItem("stories")) || [];
+
+      storiesContainer.innerHTML = ""; 
+      stories.forEach(story => {
+          const card = document.createElement("article");
+          card.classList.add("card");
+          card.innerHTML = `
+              <h3>${story.name}</h3>
+              <p>${story.need}</p>
+              <a href="stories.html" class="btn btn-small">Read Story</a>
+          `;
+          storiesContainer.appendChild(card);
+      });
+  }
+  loadStories();
+  </script>
 </body>
 </html>
-
 
