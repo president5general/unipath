@@ -1,0 +1,54 @@
+<section class="section">
+  <div class="container">
+    <h1>Complete Your Donation</h1>
+    <p>Donation Amount: <strong id="donationAmount"></strong> <span id="donationCurrency"></span></p>
+
+    <label>
+      <input type="radio" name="paymentMethod" value="paypal"> PayPal
+    </label>
+    <label>
+      <input type="radio" name="paymentMethod" value="card"> Credit/Debit Card
+    </label>
+
+    <!-- PayPal Form -->
+    <form id="paypalForm" class="hidden">
+      <label for="paypalEmail">PayPal Email:</label>
+      <input type="email" id="paypalEmail" placeholder="example@paypal.com" required>
+      <button type="submit" class="btn">Pay with PayPal</button>
+    </form>
+
+    <!-- Card Form -->
+    <form id="cardForm" class="hidden">
+      <label for="cardNumber">Card Number:</label>
+      <input type="text" id="cardNumber" placeholder="1234 5678 9012 3456" required>
+
+      <label for="expiry">Expiry Date:</label>
+      <input type="text" id="expiry" placeholder="MM/YY" required>
+
+      <label for="cvv">CVV:</label>
+      <input type="text" id="cvv" placeholder="123" required>
+
+      <button type="submit" class="btn">Pay with Card</button>
+    </form>
+  </div>
+</section>
+
+<script>
+// Get values from URL
+const urlParams = new URLSearchParams(window.location.search);
+document.getElementById("donationAmount").textContent = urlParams.get("amount") || "0";
+document.getElementById("donationCurrency").textContent = urlParams.get("currency") || "USD";
+
+// Toggle payment forms
+document.querySelectorAll("input[name='paymentMethod']").forEach(input => {
+  input.addEventListener("change", function() {
+    document.getElementById("paypalForm").classList.add("hidden");
+    document.getElementById("cardForm").classList.add("hidden");
+    if(this.value === "paypal") {
+      document.getElementById("paypalForm").classList.remove("hidden");
+    } else if(this.value === "card") {
+      document.getElementById("cardForm").classList.remove("hidden");
+    }
+  });
+});
+</script>
